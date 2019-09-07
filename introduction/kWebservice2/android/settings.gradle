@@ -1,0 +1,3 @@
+rootProject.name = 'kWebservice2'
+
+include ':app'
