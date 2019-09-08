@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import Counter from "./src/components/Counter";
+import Person from "./src/components/Person";
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -8,6 +9,7 @@ export default class App extends Component<Props> {
     return (
       <View style={styles.container}>
         <Counter/>
+        <Person/>
       </View>
     );
   }
