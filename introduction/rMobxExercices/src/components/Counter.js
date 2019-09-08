@@ -16,7 +16,7 @@ export default class Counter extends Component {
               />
               <Button
                   title={"Arttır"}
-                  onPress={() => CounterStore.Person()}
+                  onPress={() => CounterStore.arttir()}
               />
           </View>
       </View>
