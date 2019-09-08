@@ -1,4 +1,4 @@
-import {observable, action, configure} from "mobx";
+import {observable, action, configure, computed} from "mobx";
 
 configure({ // Action kullanmayi unutursak eger uygulamanin hata verip hatirlatmasi icin kullaniyoruz...
     enforceActions: "observed"
@@ -25,6 +25,17 @@ class PersonStore {
     @action changeName = () => {
         this.name = "Mehmet";
         this.surname = "Yilmaz";
+    }
+
+    /**
+     * Eger Person.js de isim ve soyisimi {PersonStore.name} {PersonStore.surname} seklinde degilde,
+     * tek seferde isim ve soyismi yazmak istiyorsak @computed olarak yeni metod yazmamiz gerekiyor.
+     *
+     * Cunku bu durumda mobx e hizmet etmis oluruz.
+     *
+     */
+    @computed get fullName(){
+        return `${this.name} ${this.surname}`;
     }
 
 }
