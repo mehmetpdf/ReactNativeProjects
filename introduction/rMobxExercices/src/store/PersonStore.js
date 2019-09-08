@@ -1,4 +1,8 @@
-import {observable, action} from "mobx";
+import {observable, action, configure} from "mobx";
+
+configure({ // Action kullanmayi unutursak eger uygulamanin hata verip hatirlatmasi icin kullaniyoruz...
+    enforceActions: "observed"
+});
 
 class PersonStore {
     @observable name = "none";
