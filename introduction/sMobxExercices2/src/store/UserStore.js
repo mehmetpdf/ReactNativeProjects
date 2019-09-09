@@ -7,8 +7,11 @@ configure({ // Action kullanmayi unutursak eger uygulamanin hata verip hatirlatm
 
 class UserStore {
     @observable users = [];
+    @observable loading = false;
 
     @action _fetchUser() {
+        this.loading = true;
+        this.users = [];
         axios
             .get('https://randomuser.me/api/?results=10')
             .then(response => response.data.results)
@@ -23,11 +26,12 @@ class UserStore {
      */
     @action.bound _fetchUserSuccess(users) {
         this.users = users;
+        this.loading = false;
     };
 
     @action.bound _fetchUserError() {
-        console.log("error");
-        alert("error")
+        alert("error");
+        this.loading = false;
     };
 }
 
