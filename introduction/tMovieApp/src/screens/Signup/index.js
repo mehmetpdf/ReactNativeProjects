@@ -1,16 +1,19 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import React, {Component} from 'react';
+import {Body, Header, Title} from "native-base";
+
+import SignupForm from './SignupForm';
 
 export default class Signup extends Component {
-  render() {
-    return (
-        <SafeAreaView>
-          <View>
-            <Text>Signup</Text>
-          </View>
-        </SafeAreaView>
-    );
-  }
+    render() {
+        return (
+            <React.Fragment>
+                <Header>
+                    <Body>
+                        <Title>Signup</Title>
+                    </Body>
+                </Header>
+                <SignupForm />
+            </React.Fragment>
+        );
+    }
 }
-
-const styles = StyleSheet.create({});
