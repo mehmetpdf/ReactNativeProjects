@@ -6,7 +6,7 @@ import { Container, Header, Content, List, ListItem, Text, Left, Right, Icon } f
 const MovieListItem = ({ item }) => (
     <ListItem noIndent >
         <Left>
-            <Text>{item.key}</Text>
+            <Text>{item.title}</Text>
         </Left>
         <Right>
             <Icon name="arrow-forward" />
