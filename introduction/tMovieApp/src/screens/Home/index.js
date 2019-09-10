@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 import LogoutButton from "../../components/LogoutButton";
+import MovieListItem from "../../components/MovieList";
+import { Container, Header, Content, List, ListItem, Text } from 'native-base';
 
 export default class Home extends Component {
 
@@ -10,9 +12,14 @@ export default class Home extends Component {
 
   render() {
     return (
-      <View>
-          <Text>Home Page</Text>
-      </View>
+      <Content>
+        <List>
+          <FlatList
+              data={[{key: 'a'}, {key: 'b'}]}
+              renderItem={({item}) => <MovieListItem item={item}/>}
+          />
+        </List>
+      </Content>
     );
   }
 }
