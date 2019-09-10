@@ -1,16 +1,34 @@
 import React from 'react'
 import {
     createBottomTabNavigator,
-    createAppContainer
+    createAppContainer,
+    createSwitchNavigator,
+    createStackNavigator
 } from 'react-navigation'
 
 // native base
 import {Icon} from 'native-base';
 
+// auth loading
+import AuthLoading from "./screens/AuthLoading";
+
+// app stack
+import Home from "./screens/Home"
 
 // authentication stack
 import Signin from "./screens/Signin";
 import Signup from "./screens/Signup";
+
+const AppStack = createStackNavigator({
+    Home: {
+        screen: Home,
+        navigationOptions: {
+            title: 'Home',
+            tabBarIcon: ({tintColor}) => <Icon name={"home"} size={22} style={{color: tintColor}}/>
+        }
+    },
+});
+
 
 const AuthStack = createBottomTabNavigator(
     {
@@ -41,4 +59,17 @@ const AuthStack = createBottomTabNavigator(
     }
 );
 
-export default createAppContainer(AuthStack);
+const SwitchNavigator = createSwitchNavigator(
+    {
+        AuthLoading: {
+            screen: AuthLoading
+        },
+        App: AppStack,
+        Auth: AuthStack,
+    },
+    {
+        initialRouteName: 'AuthLoading',
+    }
+)
+
+export default createAppContainer(SwitchNavigator);
