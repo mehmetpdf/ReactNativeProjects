@@ -3,15 +3,24 @@ import React, { Component } from 'react';
 import {Button, Content, Input, Item, Spinner, Text} from "native-base";
 import {Formik} from "formik";
 
-//import api from '../../api/api';
+import {API_BASE} from "../../Constants";
+import axios from 'axios';
+import {inject} from "mobx-react";
 import validations from './validations';
 
+@inject('AuthStore')
 export default class SigninForm extends Component {
-    _handleSubmit = async (values, bag) => {
+    _handleSubmit = async ({username, password}, bag) =>  {
         try {
-            //await api(values);
+            const {data} = await axios.post(`${API_BASE}/authenticate`, {username, password});
             bag.setSubmitting(false);
-            alert('welcome')
+
+            if(!data.status){
+                alert(data.message);
+                return false;
+            }
+
+            this.props.AuthStore._saveToken(data.token);
         }catch (e) {
             bag.setSubmitting(false);
             bag.setErrors(e)
