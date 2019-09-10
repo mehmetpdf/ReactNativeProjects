@@ -1,5 +1,6 @@
 import {observable, action} from "mobx";
 import AsyncStorage from "@react-native-community/async-storage";
+import NavigationService from '../NavigationService';
 
 class AuthStore {
     @observable token= null;

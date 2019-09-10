@@ -10,6 +10,7 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import {Provider} from "mobx-react";
 import Router from "./src/Router";
+import NavigationService from './src/NavigationService';
 
 // mobx store
 import store from './src/store'
@@ -20,7 +21,11 @@ export default class App extends Component<Props> {
     return (
         // ...store demek; store altindaki herseyi al demek..
         <Provider {...store}>
-          <Router/>
+          <Router
+              ref={navigatorRef => {
+                  NavigationService.setTopLevelNavigator(navigatorRef);
+              }}
+          />
         </Provider>
     );
   }
