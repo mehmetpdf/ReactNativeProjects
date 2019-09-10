@@ -1,7 +1,7 @@
 import {observable} from "mobx";
 
-class UserStore {
+class AuthStore {
     @observable username= "myilmaz"
 }
 
-export default new UserStore();
+export default new AuthStore();
