@@ -15,6 +15,17 @@ class AuthStore {
         }
     }
 
+    @action async _removeToken(){
+        try {
+            await AsyncStorage.removeItem('token');
+            this.token = null;
+            await this._setupAuth();
+
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     @action async _setupAuth(){
         await this._getToken();
     }
