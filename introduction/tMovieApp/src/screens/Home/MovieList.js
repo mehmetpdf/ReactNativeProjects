@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Container, Header, Content, List, ListItem, Text, Left, Right, Icon } from 'native-base';
-
+import NavigationService from "../../NavigationService";
 
 const MovieListItem = ({ item }) => (
-    <ListItem noIndent >
+    <ListItem noIndent onPress={() => NavigationService.navigate('Detail', {item})}>
         <Left>
             <Text>{item.title}</Text>
         </Left>

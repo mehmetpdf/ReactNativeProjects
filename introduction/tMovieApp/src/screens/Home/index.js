@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
 import LogoutButton from "../../components/LogoutButton";
-import MovieListItem from "../../components/MovieList";
+import MovieListItem from "./MovieList";
 import { Container, Header, Content, List, ListItem, Text, Spinner } from 'native-base';
 import {inject, observer} from "mobx-react";
 

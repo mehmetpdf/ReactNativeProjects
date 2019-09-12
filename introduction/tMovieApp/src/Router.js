@@ -14,6 +14,7 @@ import AuthLoading from "./screens/AuthLoading";
 
 // app stack
 import Home from "./screens/Home"
+import Detail from "./screens/Detail";
 
 // authentication stack
 import Signin from "./screens/Signin";
@@ -24,6 +25,13 @@ const AppStack = createStackNavigator({
         screen: Home,
         navigationOptions: {
             title: 'Home',
+            tabBarIcon: ({tintColor}) => <Icon name={"home"} size={22} style={{color: tintColor}}/>
+        }
+    },
+    Detail: {
+        screen: Detail,
+        navigationOptions: {
+            title: 'Detail',
             tabBarIcon: ({tintColor}) => <Icon name={"home"} size={22} style={{color: tintColor}}/>
         }
     },
